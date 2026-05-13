@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>網頁前端工程師實戰班 | ACC學院</title>
+    <meta name="description" content="ACC學院網頁前端教學課程，從零基礎到React實戰，帶您成為搶手的前端工程師。">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans TC"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            500: '#14b8a6', // Teal 500
+                            600: '#0d9488',
+                            700: '#0f766e',
+                            900: '#134e4a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Noto Sans TC', sans-serif; }
+        .hero-pattern {
+            background-color: #f0fdfa;
+            background-image: radial-gradient(#14b8a6 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        .gradient-text {
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-image: linear-gradient(to right, #0d9488, #2563eb);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased">
+
+    <nav class="fixed w-full bg-white/90 backdrop-blur-md shadow-sm z-50 border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <div class="w-10 h-10 bg-brand-600 rounded-lg flex items-center justify-center mr-3 text-white font-bold text-xl shadow-lg shadow-brand-500/30">
+                        ACC
+                    </div>
+                    <span class="font-black text-2xl tracking-tight text-slate-900">ACC學院</span>
+                </div>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#features" class="text-slate-600 hover:text-brand-600 font-medium transition-colors">課程特色</a>
+                    <a href="#syllabus" class="text-slate-600 hover:text-brand-600 font-medium transition-colors">詳細課綱</a>
+                    <a href="#audience" class="text-slate-600 hover:text-brand-600 font-medium transition-colors">適合對象</a>
+                    <a href="#enroll" class="bg-brand-600 hover:bg-brand-700 text-white px-6 py-2.5 rounded-full font-semibold transition-all transform hover:-translate-y-0.5 shadow-md shadow-brand-500/30">立即報名</a>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-slate-600 hover:text-slate-900 focus:outline-none p-2">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 absolute w-full shadow-lg">
+            <div class="px-4 pt-2 pb-6 space-y-2 text-center">
+                <a href="#features" class="block px-3 py-3 text-slate-600 font-medium hover:bg-slate-50 hover:text-brand-600 rounded-md">課程特色</a>
+                <a href="#syllabus" class="block px-3 py-3 text-slate-600 font-medium hover:bg-slate-50 hover:text-brand-600 rounded-md">詳細課綱</a>
+                <a href="#audience" class="block px-3 py-3 text-slate-600 font-medium hover:bg-slate-50 hover:text-brand-600 rounded-md">適合對象</a>
+                <a href="#enroll" class="block px-3 py-3 mt-4 bg-brand-600 text-white font-semibold rounded-md shadow-md">立即報名</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden hero-pattern relative">
+        <!-- Decorative blobs -->
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-brand-100/50 blur-3xl opacity-50"></div>
+        <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 rounded-full bg-blue-100/50 blur-3xl opacity-50"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="w-full lg:w-1/2 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-brand-200 text-brand-600 text-sm font-semibold mb-6 shadow-sm">
+                        <span class="w-2 h-2 rounded-full bg-brand-500 animate-pulse"></span>
+                        2026 秋季班熱烈招生中
+                    </div>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-6 text-slate-900">
+                        打造高互動網頁<br />
+                        成為搶手的<br />
+                        <span class="gradient-text">網頁前端工程師</span>
+                    </h1>
+                    <p class="text-lg md:text-xl text-slate-600 mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                        從零基礎到業界標準，帶你掌握 HTML、CSS、JavaScript 核心，並深入現代化框架 React.js。不只學語法，更帶你完成專屬作品集，成功轉職科技業！
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="#syllabus" class="bg-brand-600 hover:bg-brand-700 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-lg shadow-brand-500/30 flex items-center justify-center gap-2">
+                            查看課程大綱 <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a href="#enroll" class="bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-sm flex items-center justify-center gap-2">
+                            領取早鳥優惠
+                        </a>
+                    </div>
+                    <div class="mt-8 flex items-center justify-center lg:justify-start gap-4 text-sm text-slate-500 font-medium">
+                        <div class="flex items-center gap-1"><i class="fas fa-check-circle text-brand-500"></i> 零基礎可</div>
+                        <div class="flex items-center gap-1"><i class="fas fa-check-circle text-brand-500"></i> 實戰專案</div>
+                        <div class="flex items-center gap-1"><i class="fas fa-check-circle text-brand-500"></i> 轉職輔導</div>
+                    </div>
+                </div>
+                <div class="w-full lg:w-1/2 mt-12 lg:mt-0">
+                    <div class="relative rounded-2xl bg-slate-900 p-2 shadow-2xl overflow-hidden border border-slate-700 transform lg:rotate-2 hover:rotate-0 transition-transform duration-500">
+                        <div class="absolute top-0 left-0 w-full h-8 bg-slate-800 flex items-center px-4 gap-2">
+                            <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                        </div>
+                        <div class="mt-8 p-4 font-mono text-sm sm:text-base text-left">
+                            <div class="text-brand-400">const <span class="text-blue-300">developer</span> = {</div>
+                            <div class="pl-4 text-slate-300">name: <span class="text-yellow-300">'Your Name'</span>,</div>
+                            <div class="pl-4 text-slate-300">skills: [<span class="text-yellow-300">'HTML'</span>, <span class="text-yellow-300">'CSS'</span>, <span class="text-yellow-300">'JS'</span>, <span class="text-yellow-300">'React'</span>],</div>
+                            <div class="pl-4 text-slate-300">status: <span class="text-yellow-300">'Hired! 🚀'</span></div>
+                            <div class="text-brand-400">};</div>
+                            <br>
+                            <div class="text-slate-400">// ACC Academy makes it happen</div>
+                            <div class="text-blue-400">console<span class="text-slate-300">.log(</span><span class="text-yellow-300">"Ready to code!"</span><span class="text-slate-300">);</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">為什麼選擇 ACC學院 的前端課程？</h2>
+                <div class="w-20 h-1.5 bg-brand-500 mx-auto rounded-full"></div>
+                <p class="mt-6 text-lg text-slate-600 max-w-2xl mx-auto">我們拒絕紙上談兵，專注於培育能立即上戰場的實戰型人才。</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                    <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center text-2xl mb-6">
+                        <i class="fas fa-layer-group"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">從零到一 穩紮穩打</h3>
+                    <p class="text-slate-600 leading-relaxed">
+                        針對非本科系、零基礎新手設計。從最基礎的網頁標籤開始，循序漸進引導你建立清晰的程式邏輯思維，不怕聽不懂。
+                    </p>
+                </div>
+                <!-- Feature 2 -->
+                <div class="p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                    <div class="w-14 h-14 bg-brand-100 text-brand-600 rounded-xl flex items-center justify-center text-2xl mb-6">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">專案導向 實作學習</h3>
+                    <p class="text-slate-600 leading-relaxed">
+                        課程包含多個實用的小型專案，並在最後帶領你完成一個完整的個人全端/前端專案，直接作為求職最強的火力展示作品集。
+                    </p>
+                </div>
+                <!-- Feature 3 -->
+                <div class="p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                    <div class="w-14 h-14 bg-purple-100 text-purple-600 rounded-xl flex items-center justify-center text-2xl mb-6">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">業界接軌 現代技術</h3>
+                    <p class="text-slate-600 leading-relaxed">
+                        教授業界目前最主流的技術棧：ES6+、Tailwind CSS、React.js 以及 Git 版本控制，確保你學到的技能符合市場真實需求。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="syllabus" class="py-24 bg-slate-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">12週 完整實戰課綱</h2>
+                <div class="w-20 h-1.5 bg-brand-500 mx-auto rounded-full"></div>
+                <p class="mt-6 text-lg text-slate-600">系統化學習路徑，每週都有明確的學習目標與產出。</p>
+            </div>
+
+            <div class="space-y-6">
+                <!-- Module 1 -->
+                <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-100 flex flex-col md:flex-row gap-6 items-start">
+                    <div class="bg-brand-50 text-brand-600 font-bold px-4 py-2 rounded-lg text-sm whitespace-nowrap md:w-32 text-center border border-brand-100">
+                        第 1 - 2 週
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">網頁骨幹與美化 (HTML5 & CSS3)</h3>
+                        <p class="text-slate-600 mb-4">掌握網頁的基本結構，學習語意化標籤，並透過 CSS 實現各種排版與樣式設計。</p>
+                        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-slate-500">
+                            <li><i class="fas fa-check text-brand-500 mr-2"></i> HTML5 語意化與表單</li>
+                            <li><i class="fas fa-check text-brand-500 mr-2"></i> CSS 選擇器與 Box Model</li>
+                            <li><i class="fas fa-check text-brand-500 mr-2"></i> Flexbox 與 Grid 排版系統</li>
+                            <li><i class="fas fa-check text-brand-500 mr-2"></i> 實作：個人靜態履歷網站</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Module 2 -->
+                <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-100 flex flex-col md:flex-row gap-6 items-start">
+                    <div class="bg-brand-50 text-brand-600 font-bold px-4 py-2 rounded-lg text-sm whitespace-nowrap md:w-32 text-center border border-brand-100">
+                        第 3 - 4 週
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">響應式設計與現代 CSS 框架</h3>
+                        <p class="text-slate-600 mb-4">讓網頁在手機與電腦上都能完美呈現，並學習業界最熱門的 Tailwind CSS 加速開發。</p>
+                        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-slate-500">
+                            <li><i class="fas fa-check text-brand-500 mr-2"></i> RWD 響應式網頁設計觀念</li>
+                            <li><i class="fas fa-check text-brand-500 mr-2"></i> CSS 動畫與轉場效果</li>
+                            <li><i class="fas fa-check text-brand-500 mr-2"></i> Tailwind CSS 實戰應用</li>
+                            <li><i class="fas fa-check text-brand-500 mr-2"></i> 實作：現代化電商首頁切版</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Module 3 -->
+                <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-100 flex flex-col md:flex-row gap-6 items-start">
+                    <div class="bg-brand-50 text-brand-600 font-bold px-4 py-2 rounded-lg text-sm whitespace-nowrap md:w-32 text-center border border-brand-100">
+                        第 5 - 7 週
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">JavaScript 核心與程式邏輯</h3>
+                        <p class="text-slate-600 mb-4">賦予網頁靈魂！學習變數、迴圈、函式，深入了解 DOM 操作與非同步處理 (Ajax/Fetch)。</p>
+                        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-slate-500">
+                            <li><i class="fas fa-check text-brand-500 mr-2"></i> JS 基礎語法與資料結構</li>
+                            <li><i class="fas fa-check text-brand-500 mr-2"></i> DOM 元素操作與事件監聽</li>
+                            <li><i class="fas fa-check text-brand-500 mr-2"></i> ES6+ 新特性與 API 串接</li>
+                            <li><i class="fas fa-check text-brand-500 mr-2"></i> 實作：待辦事項(Todo List)與天氣APP</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Module 4 -->
+                <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-100 flex flex-col md:flex-row gap-6 items-start">
+                    <div class="bg-brand-50 text-brand-600 font-bold px-4 py-2 rounded-lg text-sm whitespace-nowrap md:w-32 text-center border border-brand-100">
+                        第 8 - 10 週
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">現代前端框架 React.js</h3>
+                        <p class="text-slate-600 mb-4">進入目前最主流的前端框架世界，學習元件化開發，大幅提升大型應用的開發效率與效能。</p>
+                        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-slate-500">
+                            <li><i class="fas fa-check text-brand-500 mr-2"></i> React 基礎與 JSX 語法</li>
+                            <li><i class="fas fa-check text-brand-500 mr-2"></i> State 與 Props 狀態管理</li>
+                            <li><i class="fas fa-check text-brand-500 mr-2"></i> Hooks (useState, useEffect 等)</li>
+                            <li><i class="fas fa-check text-brand-500 mr-2"></i> 實作：購物車系統開發</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Module 5 -->
+                <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-100 flex flex-col md:flex-row gap-6 items-start">
+                    <div class="bg-brand-50 text-brand-600 font-bold px-4 py-2 rounded-lg text-sm whitespace-nowrap md:w-32 text-center border border-brand-100">
+                        第 11 - 12 週
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">畢業專題與上線部署</h3>
+                        <p class="text-slate-600 mb-4">整合所學，從零開始企劃並開發你的個人代表作，並學習如何將網站部署至雲端供人瀏覽。</p>
+                        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-slate-500">
+                            <li><i class="fas fa-check text-brand-500 mr-2"></i> Git / GitHub 版本控制</li>
+                            <li><i class="fas fa-check text-brand-500 mr-2"></i> 專案架構設計與開發實作</li>
+                            <li><i class="fas fa-check text-brand-500 mr-2"></i> Vercel / Netlify 網站部署</li>
+                            <li><i class="fas fa-check text-brand-500 mr-2"></i> 履歷撰寫與面試技巧指導</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="audience" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <div class="w-full lg:w-1/2">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Students learning to code" class="rounded-2xl shadow-2xl object-cover h-[400px] w-full">
+                </div>
+                <div class="w-full lg:w-1/2">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-6">這門課適合誰？</h2>
+                    <p class="text-lg text-slate-600 mb-8">無論你的背景是什麼，只要你有心學習，這門課都能幫助你順利踏入軟體開發的領域。</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-brand-100 text-brand-600 flex items-center justify-center text-xl">
+                                <i class="fas fa-seedling"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-slate-900 mb-1">零基礎跨領域轉職者</h4>
+                                <p class="text-slate-600">從沒寫過程式？別擔心，課程設計由淺入深，提供充足的助教資源，陪你度過撞牆期。</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-brand-100 text-brand-600 flex items-center justify-center text-xl">
+                                <i class="fas fa-paint-brush"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-slate-900 mb-1">設計師/行銷人員</h4>
+                                <p class="text-slate-600">想擁有把設計圖變成真實網頁的能力？學會前端技術，大幅提升你的職場競爭力與薪資天花板。</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-brand-100 text-brand-600 flex items-center justify-center text-xl">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-slate-900 mb-1">即將畢業的學生</h4>
+                                <p class="text-slate-600">學校教的偏向理論？透過實戰課程累積專案經驗，畢業即戰力，無縫接軌科技業。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="enroll" class="py-24 bg-brand-900 text-white relative overflow-hidden">
+        <!-- Abstract background elements -->
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden opacity-20 pointer-events-none">
+            <svg class="absolute -top-24 -right-24 w-96 h-96 text-brand-500" fill="currentColor" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50"/></svg>
+            <svg class="absolute bottom-10 left-10 w-64 h-64 text-brand-700" fill="currentColor" viewBox="0 0 100 100"><rect width="100" height="100" rx="20"/></svg>
+        </div>
+
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <h2 class="text-3xl md:text-5xl font-bold mb-6">準備好開啟你的前端工程師之路了嗎？</h2>
+            <p class="text-xl text-brand-100 mb-12">現在報名享早鳥優惠，加入 ACC 學院，我們陪你寫出人生的新篇章！</p>
+            
+            <div class="bg-white rounded-3xl p-8 md:p-12 text-slate-900 shadow-2xl max-w-2xl mx-auto transform transition-transform hover:scale-[1.02]">
+                <div class="uppercase tracking-widest text-brand-600 font-bold text-sm mb-2">線上實戰直播班</div>
+                <h3 class="text-3xl font-black mb-4">第 20 屆 網頁前端實戰班</h3>
+                <div class="flex items-baseline justify-center gap-2 mb-6">
+                    <span class="text-5xl font-black">NT$ 24,000</span>
+                    <span class="text-slate-400 line-through">原價 $32,000</span>
+                </div>
+                <ul class="text-left space-y-3 mb-8 max-w-md mx-auto">
+                    <li class="flex items-center"><i class="fas fa-check-circle text-brand-500 mr-3"></i> 12 週完整線上直播課程 (可無限次觀看回放)</li>
+                    <li class="flex items-center"><i class="fas fa-check-circle text-brand-500 mr-3"></i> 專屬助教線上解惑，不怕卡關</li>
+                    <li class="flex items-center"><i class="fas fa-check-circle text-brand-500 mr-3"></i> 專業講師一對一 Code Review</li>
+                    <li class="flex items-center"><i class="fas fa-check-circle text-brand-500 mr-3"></i> 畢業媒合與專屬求職社群</li>
+                </ul>
+                <button onclick="handleEnrollClick()" class="w-full bg-brand-600 hover:bg-brand-700 text-white text-xl font-bold py-4 rounded-xl shadow-lg transition-all transform hover:-translate-y-1">
+                    立即搶佔早鳥名額
+                </button>
+                <p class="text-sm text-slate-400 mt-4">* 支援信用卡分期 0 利率 / ATM 轉帳</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center mb-4">
+                        <div class="w-8 h-8 bg-brand-600 rounded flex items-center justify-center mr-2 text-white font-bold text-sm">ACC</div>
+                        <span class="font-bold text-xl text-white">ACC學院</span>
+                    </div>
+                    <p class="text-sm leading-relaxed max-w-xs">
+                        致力於提供最高品質的程式教育，透過實戰演練與業界接軌，幫助每一位學員實現職涯夢想。
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4">課程資訊</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#features" class="hover:text-brand-400 transition-colors">課程特色</a></li>
+                        <li><a href="#syllabus" class="hover:text-brand-400 transition-colors">課程大綱</a></li>
+                        <li><a href="#audience" class="hover:text-brand-400 transition-colors">適合對象</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4">聯絡我們</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><i class="fas fa-envelope mr-2"></i> service@accclass.com</li>
+                        <li><i class="fas fa-phone mr-2"></i> 02-1234-5678</li>
+                        <li class="mt-4 flex space-x-4">
+                            <a href="#" class="text-slate-400 hover:text-white text-xl"><i class="fab fa-facebook"></i></a>
+                            <a href="#" class="text-slate-400 hover:text-white text-xl"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="text-slate-400 hover:text-white text-xl"><i class="fab fa-youtube"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-slate-800 text-center text-sm">
+                <p>&copy; 2026 ACC學院. All rights reserved. (此為示範教學頁面)</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle Logic
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        const mobileLinks = menu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        // Action for Enroll Button
+        function handleEnrollClick() {
+            // Using custom modal instead of standard alert per rules
+            const modalHtml = `
+                <div id="enroll-modal" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-[100] flex items-center justify-center p-4">
+                    <div class="bg-white rounded-2xl p-8 max-w-sm w-full shadow-2xl transform transition-all text-center">
+                        <div class="w-16 h-16 bg-green-100 text-green-500 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-slate-900 mb-2">準備報名！</h3>
+                        <p class="text-slate-600 mb-6">系統將導向結帳與註冊頁面，請備妥您的基本資料。</p>
+                        <button onclick="document.getElementById('enroll-modal').remove()" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-3 rounded-xl transition-colors">
+                            確認並繼續
+                        </button>
+                    </div>
+                </div>
+            `;
+            document.body.insertAdjacentHTML('beforeend', modalHtml);
+        }
+    </script>
+</body>
+</html>
